@@ -1,10 +1,10 @@
 <?php
 
-namespace Codeplugtech\DodoPayments\Concerns;
+namespace Plusinfolab\DodoCashier\Concerns;
 
-use Codeplugtech\DodoPayments\DodoPayments;
-use Codeplugtech\DodoPayments\Enum\SubscriptionStatusEnum;
-use Codeplugtech\DodoPayments\SubscriptionBuilder;
+use Plusinfolab\DodoCashier\DodoPayments;
+use Plusinfolab\DodoCashier\Enum\SubscriptionStatusEnum;
+use Plusinfolab\DodoCashier\SubscriptionBuilder;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
@@ -20,7 +20,7 @@ trait ManageSubscriptions
      */
     public function newSubscription(string $type, string $productId): SubscriptionBuilder
     {
-        return new SubscriptionBuilder($type, $productId,$this);
+        return new SubscriptionBuilder($type, $productId, $this);
     }
 
     /**
@@ -41,6 +41,6 @@ trait ManageSubscriptions
      */
     public function subscription()
     {
-        return $this->subscriptions?->where('status',SubscriptionStatusEnum::ACTIVE->value)->first();
+        return $this->subscriptions?->where('status', SubscriptionStatusEnum::ACTIVE->value)->first();
     }
 }

@@ -1,12 +1,13 @@
 <?php
 
-namespace Codeplugtech\DodoPayments;
+namespace Plusinfolab\DodoCashier;
 
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Money\Currency;
 use Illuminate\Database\Eloquent\Casts\Attribute;
+
 class Transaction extends Model
 {
     use HasFactory;
@@ -52,7 +53,7 @@ class Transaction extends Model
      *
      * @return string
      */
-    public function total():string
+    public function total(): string
     {
         return DodoPayments::formatAmount($this->total, $this->currency());
     }
@@ -63,7 +64,7 @@ class Transaction extends Model
     protected function formatTotal(): Attribute
     {
         return Attribute::make(
-            get: fn (string $value) => $this->total(),
+            get: fn(string $value) => $this->total(),
         );
     }
 
@@ -72,7 +73,7 @@ class Transaction extends Model
      *
      * @return string
      */
-    public function tax():string
+    public function tax(): string
     {
         return DodoPayments::formatAmount($this->tax, $this->currency());
     }
@@ -86,5 +87,4 @@ class Transaction extends Model
     {
         return new Currency($this->currency);
     }
-
 }

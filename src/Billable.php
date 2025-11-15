@@ -1,9 +1,9 @@
 <?php
 
-namespace Codeplugtech\DodoPayments;
+namespace Plusinfolab\DodoCashier;
 
-use Codeplugtech\DodoPayments\Concerns\ManageSubscriptions;
-use Codeplugtech\DodoPayments\Concerns\ManageTransactions;
+use Plusinfolab\DodoCashier\Concerns\ManageSubscriptions;
+use Plusinfolab\DodoCashier\Concerns\ManageTransactions;
 
 trait Billable
 {

@@ -1,7 +1,7 @@
 <?php
 
-use Codeplugtech\DodoPayments\SubscriptionBuilder;
-use Codeplugtech\DodoPayments\Exceptions\DodoPaymentsException;
+use Plusinfolab\DodoCashier\SubscriptionBuilder;
+use Plusinfolab\DodoCashier\Exceptions\DodoPaymentsException;
 use Illuminate\Http\RedirectResponse;
 
 it('sets billing information correctly', function () {
@@ -34,7 +34,7 @@ it('throws an exception for invalid country code', function () {
 it('sets customer information correctly', function () {
 
     $subscriptionBuilder = new SubscriptionBuilder('monthly', 'prod_12345');
-    $subscriptionBuilder->setCustomer('satz','satz@gmail.com');
+    $subscriptionBuilder->setCustomer('satz', 'satz@gmail.com');
 
 
     $reflection = new ReflectionClass(SubscriptionBuilder::class);
@@ -44,7 +44,7 @@ it('sets customer information correctly', function () {
     expect($data['customer'])->toBe([
         'name' => 'satz',
         'email' => 'satz@gmail.com',
-        'create_new_customer'=>false
+        'create_new_customer' => false
     ]);
 });
 
@@ -67,4 +67,3 @@ it('creates a subscription and redirects correctly', function () {
 
     expect($response)->toBeInstanceOf(RedirectResponse::class);
 });
-

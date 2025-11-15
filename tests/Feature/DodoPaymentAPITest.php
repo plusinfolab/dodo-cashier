@@ -1,7 +1,7 @@
 <?php
 
-use Codeplugtech\DodoPayments\DodoPayments;
-use Codeplugtech\DodoPayments\Exceptions\DodoPaymentsException;
+use Plusinfolab\DodoCashier\DodoPayments;
+use Plusinfolab\DodoCashier\Exceptions\DodoPaymentsException;
 use Illuminate\Http\Client\Request;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Http;
@@ -83,7 +83,7 @@ test('products method returns a collection of products', function () {
 
     expect($products)->toBeInstanceOf(Collection::class)
         ->and($products->count())->toBe(2)
-        ->and($products->first())->toBeInstanceOf(\Codeplugtech\DodoPayments\Product::class);
+        ->and($products->first())->toBeInstanceOf(\Plusinfolab\DodoCashier\Product::class);
 });
 
 test('productPrice method retrieves product details', function () {
@@ -111,7 +111,7 @@ test('productPrice method retrieves product details', function () {
 
     $product = DodoPayments::productPrice('prod_67890');
 
-    expect($product)->toBeInstanceOf(\Codeplugtech\DodoPayments\Product::class)
+    expect($product)->toBeInstanceOf(\Plusinfolab\DodoCashier\Product::class)
         ->and($product->productId)->toBe('prod_67890')
         ->and($product->price->amount)->toBe(500);
 });

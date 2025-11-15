@@ -1,8 +1,8 @@
 <?php
 
-namespace Codeplugtech\DodoPayments\Enum;
+namespace Plusinfolab\DodoCashier\Enum;
 
-enum SubscriptionStatusEnum:string
+enum SubscriptionStatusEnum: string
 {
     case ACTIVE = 'active';
     case PENDING = 'pending';

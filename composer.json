@@ -1,5 +1,5 @@
 {
-    "name": "codeplugtech/dodo-payments",
+    "name": "plusinfolab/dodo-cashier",
     "description": "Laravel Package for Dodo Payments",
     "keywords": ["laravel", "dodo payments", "billing"],
     "license": "MIT",
@@ -8,8 +8,8 @@
     },
     "authors": [
         {
-            "name": "Sathish Kumar",
-            "email": "satz@codeplugtech.in"
+            "name": "Plusinfolab",
+            "email": "info@plusinfolab.com"
         }
     ],
     "require": {
@@ -40,19 +40,19 @@
     },
     "autoload": {
         "psr-4": {
-            "Codeplugtech\\DodoPayments\\": "src/"
+            "Plusinfolab\\DodoPayments\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Codeplugtech\\DodoPayments\\Tests\\": "tests/",
+            "Plusinfolab\\DodoPayments\\Tests\\": "tests/",
             "Database\\Factories\\": "database/factories/"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "Codeplugtech\\DodoPayments\\DodoPaymentsServiceProvider"
+                "Plusinfolab\\DodoCashier\\DodoCashierServiceProvider"
             ]
         }
     },

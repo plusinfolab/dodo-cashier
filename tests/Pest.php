@@ -11,7 +11,7 @@
 |
 */
 
-use Codeplugtech\DodoPayments\Tests\TestCase;
+use Plusinfolab\DodoCashier\Tests\TestCase;
 
 uses(TestCase::class)->in('Feature');
 uses(TestCase::class)->in('Unit');

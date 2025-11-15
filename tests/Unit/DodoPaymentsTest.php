@@ -1,8 +1,8 @@
 <?php
 
-namespace Codeplugtech\DodoPayments\Tests\Unit;
+namespace Plusinfolab\DodoCashier\Tests\Unit;
 
-use Codeplugtech\DodoPayments\DodoPayments;
+use Plusinfolab\DodoCashier\DodoPayments;
 
 it('it can format amount 1000 into $10.00', function () {
     $this->assertSame('$10', DodoPayments::formatAmount(1000, 'USD'));

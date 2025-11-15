@@ -1,10 +1,7 @@
 <?php
 
-namespace Codeplugtech\DodoPayments\Exceptions;
+namespace Plusinfolab\DodoCashier\Exceptions;
 
 use Exception;
 
-class DodoPaymentsException extends Exception
-{
-
-}
+class DodoPaymentsException extends Exception {}

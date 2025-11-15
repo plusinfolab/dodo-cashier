@@ -3,9 +3,9 @@
 namespace Database\Factories;
 
 
-use Codeplugtech\DodoPayments\DodoPayments;
-use Codeplugtech\DodoPayments\Subscription;
-use Codeplugtech\DodoPayments\Tests\Models\User;
+use Plusinfolab\DodoCashier\DodoPayments;
+use Plusinfolab\DodoCashier\Subscription;
+use Plusinfolab\DodoCashier\Tests\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class SubscriptionFactory extends Factory

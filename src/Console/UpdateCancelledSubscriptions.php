@@ -1,10 +1,10 @@
 <?php
 
-namespace Codeplugtech\DodoPayments\Console;
+namespace Plusinfolab\DodoCashier\Console;
 
-use Codeplugtech\DodoPayments\Enum\SubscriptionStatusEnum;
+use Plusinfolab\DodoCashier\Enum\SubscriptionStatusEnum;
 use Illuminate\Console\Command;
-use Codeplugtech\DodoPayments\Subscription;
+use Plusinfolab\DodoCashier\Subscription;
 use Carbon\Carbon;
 
 class UpdateCancelledSubscriptions extends Command

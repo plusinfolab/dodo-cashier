@@ -1,9 +1,9 @@
 <?php
 
-namespace Codeplugtech\DodoPayments;
+namespace Plusinfolab\DodoCashier;
 
 use Illuminate\Support\Facades\Response;
-use Codeplugtech\DodoPayments\Enum\SubscriptionStatusEnum;
+use Plusinfolab\DodoCashier\Enum\SubscriptionStatusEnum;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -159,11 +159,14 @@ class Subscription extends Model
      */
     public function swapPlan(string $productId, string $type): void
     {
-        $response = DodoPayments::api('POST', "subscriptions/{$this->subscription_id}/change-plan", [
-            'product_id' => $productId,
-            'proration_billing_mode' => 'prorated_immediately',
-            'quantity' => 1
-        ],
+        $response = DodoPayments::api(
+            'POST',
+            "subscriptions/{$this->subscription_id}/change-plan",
+            [
+                'product_id' => $productId,
+                'proration_billing_mode' => 'prorated_immediately',
+                'quantity' => 1
+            ],
         );
         if ($response->successful()) {
             $this->update([
@@ -247,6 +250,4 @@ class Subscription extends Model
         ]);
         return $this;
     }
-
-
 }

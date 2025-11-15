@@ -1,8 +1,8 @@
 <?php
 
-namespace Codeplugtech\DodoPayments;
+namespace Plusinfolab\DodoCashier;
 
-use Codeplugtech\DodoPayments\Exceptions\DodoPaymentsException;
+use Plusinfolab\DodoCashier\Exceptions\DodoPaymentsException;
 use Illuminate\Http\Client\Response;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Http;
@@ -160,6 +160,4 @@ class DodoPayments
         }
         abort(404, 'Invoice not found or failed to fetch.');
     }
-
-
 }

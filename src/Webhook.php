@@ -1,6 +1,6 @@
 <?php
 
-namespace Codeplugtech\DodoPayments;
+namespace Plusinfolab\DodoCashier;
 
 class Webhook
 {

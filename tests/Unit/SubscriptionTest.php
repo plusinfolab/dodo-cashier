@@ -1,10 +1,10 @@
 <?php
 
-namespace Codeplugtech\DodoPayments\Tests\Unit;
+namespace Plusinfolab\DodoCashier\Tests\Unit;
 
-use Codeplugtech\DodoPayments\Enum\SubscriptionStatusEnum;
-use Codeplugtech\DodoPayments\Subscription;
-use Codeplugtech\DodoPayments\Transaction;
+use Plusinfolab\DodoCashier\Enum\SubscriptionStatusEnum;
+use Plusinfolab\DodoCashier\Subscription;
+use Plusinfolab\DodoCashier\Transaction;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
 uses(RefreshDatabase::class);

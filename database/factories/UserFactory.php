@@ -2,7 +2,7 @@
 
 namespace Database\Factories;
 
-use Codeplugtech\DodoPayments\Tests\Models\User;
+use Plusinfolab\DodoCashier\Tests\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class UserFactory extends Factory

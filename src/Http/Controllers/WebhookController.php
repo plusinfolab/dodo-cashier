@@ -1,18 +1,18 @@
 <?php
 
-namespace Codeplugtech\DodoPayments\Http\Controllers;
+namespace Plusinfolab\DodoCashier\Http\Controllers;
 
-use Codeplugtech\DodoPayments\Enum\SubscriptionStatusEnum;
-use Codeplugtech\DodoPayments\Events\SubscriptionPlanChanged;
-use Codeplugtech\DodoPayments\Events\SubscriptionRenewed;
-use Codeplugtech\DodoPayments\Subscription;
+use Plusinfolab\DodoCashier\Enum\SubscriptionStatusEnum;
+use Plusinfolab\DodoCashier\Events\SubscriptionPlanChanged;
+use Plusinfolab\DodoCashier\Events\SubscriptionRenewed;
+use Plusinfolab\DodoCashier\Subscription;
 use Illuminate\Routing\Controller;
-use Codeplugtech\DodoPayments\DodoPayments;
-use Codeplugtech\DodoPayments\Events\PaymentSucceeded;
-use Codeplugtech\DodoPayments\Events\SubscriptionActive;
-use Codeplugtech\DodoPayments\Events\SubscriptionFailed;
-use Codeplugtech\DodoPayments\Events\SubscriptionOnHold;
-use Codeplugtech\DodoPayments\Http\Middleware\VerifyWebhookSignature as DodoPaymentsWebhookSignature;
+use Plusinfolab\DodoCashier\DodoPayments;
+use Plusinfolab\DodoCashier\Events\PaymentSucceeded;
+use Plusinfolab\DodoCashier\Events\SubscriptionActive;
+use Plusinfolab\DodoCashier\Events\SubscriptionFailed;
+use Plusinfolab\DodoCashier\Events\SubscriptionOnHold;
+use Plusinfolab\DodoCashier\Http\Middleware\VerifyWebhookSignature as DodoPaymentsWebhookSignature;
 use Illuminate\Support\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Config;
@@ -271,14 +271,11 @@ class WebhookController extends Controller
                 'next_billing_at' => $data['next_billing_at'] ?? null
             ]);
         }, 3);
-
     }
 
-    protected function findCustomer(string $email):mixed
+    protected function findCustomer(string $email): mixed
     {
         $userModel = config('dodo.user_model');
         return (new $userModel)->whereEmail($email)->firstOrFail();
     }
-
-
 }

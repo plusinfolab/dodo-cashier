@@ -1,13 +1,14 @@
 <?php
+
 declare(strict_types=1);
 
-namespace Codeplugtech\DodoPayments;
+namespace Plusinfolab\DodoCashier;
 
-use Codeplugtech\DodoPayments\Console\UpdateCancelledSubscriptions;
+use Plusinfolab\DodoCashier\Console\UpdateCancelledSubscriptions;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class DodoPaymentsServiceProvider extends \Illuminate\Support\ServiceProvider
+class DodoCashierServiceProvider extends \Illuminate\Support\ServiceProvider
 {
 
     /**
@@ -18,7 +19,8 @@ class DodoPaymentsServiceProvider extends \Illuminate\Support\ServiceProvider
     public function register(): void
     {
         $this->mergeConfigFrom(
-            __DIR__ . '/../config/dodo.php', 'dodo'
+            __DIR__ . '/../config/dodo.php',
+            'dodo'
         );
     }
 
@@ -35,7 +37,7 @@ class DodoPaymentsServiceProvider extends \Illuminate\Support\ServiceProvider
     {
         Route::group([
             'prefix' => config('dodo.path'),
-            'namespace' => 'Codeplugtech\DodoPayments\Http\Controllers',
+            'namespace' => 'Plusinfolab\DodoCashier\Http\Controllers',
             'as' => 'dodo.',
         ], function () {
             $this->loadRoutesFrom(__DIR__ . '/../routes/web.php');
@@ -64,7 +66,7 @@ class DodoPaymentsServiceProvider extends \Illuminate\Support\ServiceProvider
     {
         if ($this->app->environment('testing')) {
             Factory::guessFactoryNamesUsing(
-                fn (string $modelName) => 'Database\\Factories\\'.class_basename($modelName).'Factory'
+                fn(string $modelName) => 'Database\\Factories\\' . class_basename($modelName) . 'Factory'
             );
         }
     }
@@ -82,5 +84,4 @@ class DodoPaymentsServiceProvider extends \Illuminate\Support\ServiceProvider
             ]);
         }
     }
-
 }

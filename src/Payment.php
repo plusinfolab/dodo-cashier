@@ -1,12 +1,13 @@
 <?php
 
-namespace Codeplugtech\DodoPayments;
+namespace Plusinfolab\DodoCashier;
 
 use Carbon\Carbon;
 use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Contracts\Support\Jsonable;
 use JsonSerializable;
 use Money\Currency;
+
 class Payment implements Arrayable, Jsonable, JsonSerializable
 {
     /**
@@ -38,7 +39,7 @@ class Payment implements Arrayable, Jsonable, JsonSerializable
      * @param  \Carbon\Carbon  $date
      * @return void
      */
-    public function __construct(string $amount,string $currency, Carbon $date)
+    public function __construct(string $amount, string $currency, Carbon $date)
     {
         $this->amount = $amount;
         $this->currency = $currency;
@@ -50,7 +51,7 @@ class Payment implements Arrayable, Jsonable, JsonSerializable
      *
      * @return string
      */
-    public function amount():string
+    public function amount(): string
     {
         return DodoPayments::formatAmount($this->amount, $this->currency);
     }
@@ -60,7 +61,7 @@ class Payment implements Arrayable, Jsonable, JsonSerializable
      *
      * @return string
      */
-    public function rawAmount():string
+    public function rawAmount(): string
     {
         return $this->amount;
     }
@@ -105,7 +106,7 @@ class Payment implements Arrayable, Jsonable, JsonSerializable
      * @param  int  $options
      * @return string
      */
-    public function toJson($options = 0):string
+    public function toJson($options = 0): string
     {
         return json_encode($this->jsonSerialize(), $options);
     }
@@ -116,9 +117,8 @@ class Payment implements Arrayable, Jsonable, JsonSerializable
      * @return array
      */
     #[\ReturnTypeWillChange]
-    public function jsonSerialize():array
+    public function jsonSerialize(): array
     {
         return $this->toArray();
     }
 }
-

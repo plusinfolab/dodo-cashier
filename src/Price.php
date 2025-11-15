@@ -1,6 +1,6 @@
 <?php
 
-namespace Codeplugtech\DodoPayments;
+namespace Plusinfolab\DodoCashier;
 
 class Price
 {
@@ -22,11 +22,11 @@ class Price
         $this->currency = $data['currency'];
         $this->discount = $data['discount'];
         $this->purchasingPowerParity = $data['purchasing_power_parity'];
-        $this->paymentFrequencyCount = $data['payment_frequency_count']??null;
-        $this->paymentFrequencyInterval = $data['payment_frequency_interval']??null;
-        $this->subscriptionPeriodCount = $data['subscription_period_count']??null;
-        $this->subscriptionPeriodInterval = $data['subscription_period_interval']??null;
-        $this->trialPeriodDays = $data['trial_period_days']??null;
+        $this->paymentFrequencyCount = $data['payment_frequency_count'] ?? null;
+        $this->paymentFrequencyInterval = $data['payment_frequency_interval'] ?? null;
+        $this->subscriptionPeriodCount = $data['subscription_period_count'] ?? null;
+        $this->subscriptionPeriodInterval = $data['subscription_period_interval'] ?? null;
+        $this->trialPeriodDays = $data['trial_period_days'] ?? null;
     }
 
     public function amount(): string
@@ -74,6 +74,4 @@ class Price
     {
         return $this->price[$key];
     }
-
-
 }

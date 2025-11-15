@@ -1,8 +1,8 @@
 <?php
 
-namespace Codeplugtech\DodoPayments\Concerns;
+namespace Plusinfolab\DodoCashier\Concerns;
 
-use Codeplugtech\DodoPayments\DodoPayments;
+use Plusinfolab\DodoCashier\DodoPayments;
 
 trait ManageTransactions
 {

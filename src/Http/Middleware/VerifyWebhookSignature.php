@@ -1,6 +1,6 @@
 <?php
 
-namespace Codeplugtech\DodoPayments\Http\Middleware;
+namespace Plusinfolab\DodoCashier\Http\Middleware;
 
 use Illuminate\Support\Facades\Log;
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
@@ -44,8 +44,7 @@ class VerifyWebhookSignature
         string $webhookId,
         string $webhookTimestamp,
         string $webhookSecret
-    ): bool
-    {
+    ): bool {
         try {
             // Remove the whsec_ prefix if present
             $cleanSecret = str_starts_with($webhookSecret, 'whsec_')
@@ -90,6 +89,4 @@ class VerifyWebhookSignature
             return false;
         }
     }
-
-
 }

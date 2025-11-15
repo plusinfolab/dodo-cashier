@@ -1,9 +1,9 @@
 <?php
 
-namespace Codeplugtech\DodoPayments\Tests;
+namespace Plusinfolab\DodoCashier\Tests;
 
-use Codeplugtech\DodoPayments\DodoPaymentsServiceProvider;
-use Codeplugtech\DodoPayments\Tests\Models\User;
+use Plusinfolab\DodoCashier\DodoPaymentsServiceProvider;
+use Plusinfolab\DodoCashier\Tests\Models\User;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 use Orchestra\Testbench\TestCase as OrchestraTestCase;
@@ -26,8 +26,8 @@ abstract class TestCase extends OrchestraTestCase
 
         config()->set('auth.providers.users.model', User::class);
         config()->set('app.key', 'base64:' . base64_encode(
-                Encrypter::generateKey(config()['app.cipher'])
-            ));
+            Encrypter::generateKey(config()['app.cipher'])
+        ));
     }
 
     protected function setUp(): void
@@ -48,8 +48,5 @@ abstract class TestCase extends OrchestraTestCase
             $table->string('password');
             $table->timestamps();
         });
-
     }
-
-
 }

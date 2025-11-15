@@ -1,13 +1,13 @@
 <?php
 
 use Illuminate\Support\Facades\Event;
-use Codeplugtech\DodoPayments\Events\SubscriptionRenewed;
-use Codeplugtech\DodoPayments\Subscription;
-use Codeplugtech\DodoPayments\Tests\Models\User;
+use Plusinfolab\DodoCashier\Events\SubscriptionRenewed;
+use Plusinfolab\DodoCashier\Subscription;
+use Plusinfolab\DodoCashier\Tests\Models\User;
 
 beforeEach(function () {
-    config()->set('dodo.user_model', \Codeplugtech\DodoPayments\Tests\Models\User::class);
-    Route::post('/webhook/dodo', \Codeplugtech\DodoPayments\Http\Controllers\WebhookController::class);
+    config()->set('dodo.user_model', \Plusinfolab\DodoCashier\Tests\Models\User::class);
+    Route::post('/webhook/dodo', \Plusinfolab\DodoCashier\Http\Controllers\WebhookController::class);
 });
 
 it('dispatches SubscriptionRenewed event when webhook receives subscription.renewed', function () {

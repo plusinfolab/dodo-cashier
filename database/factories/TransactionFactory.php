@@ -2,10 +2,10 @@
 
 namespace Database\Factories;
 
-use Codeplugtech\DodoPayments\DodoPayments;
-use Codeplugtech\DodoPayments\Tests\Models\User;
-use Codeplugtech\DodoPayments\Transaction;
-use Codeplugtech\DodoPayments\Subscription;
+use Plusinfolab\DodoCashier\DodoPayments;
+use Plusinfolab\DodoCashier\Tests\Models\User;
+use Plusinfolab\DodoCashier\Transaction;
+use Plusinfolab\DodoCashier\Subscription;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class TransactionFactory extends Factory

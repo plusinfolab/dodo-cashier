@@ -1,9 +1,9 @@
 <?php
 
-namespace Codeplugtech\DodoPayments;
+namespace Plusinfolab\DodoCashier;
 
-use Codeplugtech\DodoPayments\Enum\PaymentStatusEnum;
-use Codeplugtech\DodoPayments\Exceptions\DodoPaymentsException;
+use Plusinfolab\DodoCashier\Enum\PaymentStatusEnum;
+use Plusinfolab\DodoCashier\Exceptions\DodoPaymentsException;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Redirect;
@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Redirect;
 class SubscriptionBuilder
 {
 
-    protected array $data =[];
+    protected array $data = [];
     /**
      *
      * @param string $type
@@ -94,7 +94,7 @@ class SubscriptionBuilder
         $this->data['customer'] = [
             'name' => $name,
             'email' => $email,
-            'create_new_customer'=> $isNewCustomer
+            'create_new_customer' => $isNewCustomer
         ];
         return $this;
     }

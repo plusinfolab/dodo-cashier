@@ -1,6 +1,6 @@
 <?php
 
-namespace Codeplugtech\DodoPayments;
+namespace Plusinfolab\DodoCashier;
 
 class Product
 {
@@ -28,5 +28,4 @@ class Product
         $this->taxCategory = $data['tax_category'];
         $this->price = is_int($data['price']) ? $data['price'] : new Price($data['price']); // Instantiate Price class
     }
-
 }
