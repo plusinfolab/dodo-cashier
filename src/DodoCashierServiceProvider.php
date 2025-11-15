@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Plusinfolab\DodoCashier;
+namespace Plusinfolab\DodoPayments;
 
 use Plusinfolab\DodoCashier\Console\UpdateCancelledSubscriptions;
 use Illuminate\Support\Facades\Route;

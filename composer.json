@@ -52,7 +52,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Plusinfolab\\DodoCashier\\DodoCashierServiceProvider"
+                "Plusinfolab\\DodoPayments\\DodoCashierServiceProvider"
             ]
         }
     },
