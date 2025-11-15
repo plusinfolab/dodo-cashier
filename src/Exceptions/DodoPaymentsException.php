@@ -1,6 +1,6 @@
 <?php
 
-namespace Plusinfolab\DodoCashier\Exceptions;
+namespace Plusinfolab\DodoPayments\Exceptions;
 
 use Exception;
 

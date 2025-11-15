@@ -1,9 +1,9 @@
 <?php
 
-namespace Plusinfolab\DodoCashier;
+namespace Plusinfolab\DodoPayments;
 
-use Plusinfolab\DodoCashier\Enum\PaymentStatusEnum;
-use Plusinfolab\DodoCashier\Exceptions\DodoPaymentsException;
+use Plusinfolab\DodoPayments\Enum\PaymentStatusEnum;
+use Plusinfolab\DodoPayments\Exceptions\DodoPaymentsException;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Redirect;

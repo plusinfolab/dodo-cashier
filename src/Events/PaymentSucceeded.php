@@ -1,8 +1,8 @@
 <?php
 
-namespace Plusinfolab\DodoCashier\Events;
+namespace Plusinfolab\DodoPayments\Events;
 
-use Plusinfolab\DodoCashier\Transaction;
+use Plusinfolab\DodoPayments\Transaction;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;

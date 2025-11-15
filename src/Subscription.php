@@ -1,9 +1,9 @@
 <?php
 
-namespace Plusinfolab\DodoCashier;
+namespace Plusinfolab\DodoPayments;
 
 use Illuminate\Support\Facades\Response;
-use Plusinfolab\DodoCashier\Enum\SubscriptionStatusEnum;
+use Plusinfolab\DodoPayments\Enum\SubscriptionStatusEnum;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Plusinfolab\DodoCashier\Http\Middleware;
+namespace Plusinfolab\DodoPayments\Http\Middleware;
 
 use Illuminate\Support\Facades\Log;
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;

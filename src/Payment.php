@@ -1,6 +1,6 @@
 <?php
 
-namespace Plusinfolab\DodoCashier;
+namespace Plusinfolab\DodoPayments;
 
 use Carbon\Carbon;
 use Illuminate\Contracts\Support\Arrayable;

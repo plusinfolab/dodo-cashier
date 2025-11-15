@@ -1,6 +1,6 @@
 <?php
 
-namespace Plusinfolab\DodoCashier;
+namespace Plusinfolab\DodoPayments;
 
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;

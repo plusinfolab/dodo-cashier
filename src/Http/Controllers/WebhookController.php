@@ -1,18 +1,18 @@
 <?php
 
-namespace Plusinfolab\DodoCashier\Http\Controllers;
+namespace Plusinfolab\DodoPayments\Http\Controllers;
 
-use Plusinfolab\DodoCashier\Enum\SubscriptionStatusEnum;
-use Plusinfolab\DodoCashier\Events\SubscriptionPlanChanged;
-use Plusinfolab\DodoCashier\Events\SubscriptionRenewed;
-use Plusinfolab\DodoCashier\Subscription;
+use Plusinfolab\DodoPayments\Enum\SubscriptionStatusEnum;
+use Plusinfolab\DodoPayments\Events\SubscriptionPlanChanged;
+use Plusinfolab\DodoPayments\Events\SubscriptionRenewed;
+use Plusinfolab\DodoPayments\Subscription;
 use Illuminate\Routing\Controller;
-use Plusinfolab\DodoCashier\DodoPayments;
-use Plusinfolab\DodoCashier\Events\PaymentSucceeded;
-use Plusinfolab\DodoCashier\Events\SubscriptionActive;
-use Plusinfolab\DodoCashier\Events\SubscriptionFailed;
-use Plusinfolab\DodoCashier\Events\SubscriptionOnHold;
-use Plusinfolab\DodoCashier\Http\Middleware\VerifyWebhookSignature as DodoPaymentsWebhookSignature;
+use Plusinfolab\DodoPayments\DodoPayments;
+use Plusinfolab\DodoPayments\Events\PaymentSucceeded;
+use Plusinfolab\DodoPayments\Events\SubscriptionActive;
+use Plusinfolab\DodoPayments\Events\SubscriptionFailed;
+use Plusinfolab\DodoPayments\Events\SubscriptionOnHold;
+use Plusinfolab\DodoPayments\Http\Middleware\VerifyWebhookSignature as DodoPaymentsWebhookSignature;
 use Illuminate\Support\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Config;

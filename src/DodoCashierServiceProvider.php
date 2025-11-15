@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Plusinfolab\DodoPayments;
 
-use Plusinfolab\DodoCashier\Console\UpdateCancelledSubscriptions;
+use Plusinfolab\DodoPayments\Console\UpdateCancelledSubscriptions;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -37,7 +37,7 @@ class DodoCashierServiceProvider extends \Illuminate\Support\ServiceProvider
     {
         Route::group([
             'prefix' => config('dodo.path'),
-            'namespace' => 'Plusinfolab\DodoCashier\Http\Controllers',
+            'namespace' => 'Plusinfolab\DodoPayments\Http\Controllers',
             'as' => 'dodo.',
         ], function () {
             $this->loadRoutesFrom(__DIR__ . '/../routes/web.php');

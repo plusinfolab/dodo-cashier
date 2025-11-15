@@ -1,6 +1,6 @@
 <?php
 
-namespace Plusinfolab\DodoCashier\Enum;
+namespace Plusinfolab\DodoPayments\Enum;
 
 enum PaymentStatusEnum: string
 {

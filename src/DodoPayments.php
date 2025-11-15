@@ -1,8 +1,8 @@
 <?php
 
-namespace Plusinfolab\DodoCashier;
+namespace Plusinfolab\DodoPayments;
 
-use Plusinfolab\DodoCashier\Exceptions\DodoPaymentsException;
+use Plusinfolab\DodoPayments\Exceptions\DodoPaymentsException;
 use Illuminate\Http\Client\Response;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Http;

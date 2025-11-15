@@ -1,10 +1,10 @@
 <?php
 
-namespace Plusinfolab\DodoCashier\Concerns;
+namespace Plusinfolab\DodoPayments\Concerns;
 
-use Plusinfolab\DodoCashier\DodoPayments;
-use Plusinfolab\DodoCashier\Enum\SubscriptionStatusEnum;
-use Plusinfolab\DodoCashier\SubscriptionBuilder;
+use Plusinfolab\DodoPayments\DodoPayments;
+use Plusinfolab\DodoPayments\Enum\SubscriptionStatusEnum;
+use Plusinfolab\DodoPayments\SubscriptionBuilder;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
