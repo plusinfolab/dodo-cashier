@@ -9,4 +9,5 @@ return [
     'path' => env('DODO_PATH', 'dodo'),
     'overlay_checkout' => env('DODO_CHECKOUT', 'true'),
     'user_model' => App\Models\User::class,
+    'brand_id' => env('DODO_BRAND_ID'),
 ];

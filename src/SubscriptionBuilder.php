@@ -6,7 +6,10 @@ use Plusinfolab\DodoPayments\Enum\PaymentStatusEnum;
 use Plusinfolab\DodoPayments\Exceptions\DodoPaymentsException;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Redirect;
+
+use function Laravel\Prompts\info;
 
 /**
  *
@@ -15,6 +18,8 @@ class SubscriptionBuilder
 {
 
     protected array $data = [];
+    protected $enableDebug = false;
+    protected $returnCheckoutUrl = false;
     /**
      *
      * @param string $type
@@ -132,10 +137,50 @@ class SubscriptionBuilder
     }
 
     /**
+     * @param int $trialDays
+     * @return $this
+     */
+    public function setTrialPeriodDays(int $trialDays): self
+    {
+        $this->data['trial_period_days'] = $trialDays;
+        return $this;
+    }
+
+    /**
+     * @param array $metadata
+     * @return $this
+     */
+    public function setMetadata(array $metadata): self
+    {
+        $this->data['metadata'] = (object) array_map(fn($value) => (string) $value, $metadata);
+        return $this;
+    }
+
+    /**
+     * @param bool $enableDebug
+     * @return $this
+     */
+    public function enableDebug(bool $enableDebug = true): self
+    {
+        $this->enableDebug = $enableDebug;
+        return $this;
+    }
+
+    public function returnCheckoutUrl(bool $returnCheckoutUrl): self
+    {
+        $this->returnCheckoutUrl = $returnCheckoutUrl;
+        return $this;
+    }
+
+    /**
      * @throws DodoPaymentsException
      */
     public function create()
     {
+        if ($this->enableDebug) {
+            Log::info('Subscription Data: ' , $this->data);
+        }
+
         $response = DodoPayments::api('post', 'subscriptions', $this->data);
         if ($response->failed()) {
             throw new DodoPaymentsException('Failed to create subscription: ' . $response->body());
@@ -146,6 +191,10 @@ class SubscriptionBuilder
             'product_id' => $this->data['product_id'],
             'status' => PaymentStatusEnum::PENDING
         ]);
+        if ($this->returnCheckoutUrl) {
+            Log::info('Subscription Data: ' , $this->data);
+            return ["checkout_url" => $response->json('payment_link')];
+        }
         return Redirect::to($response->json('payment_link'), 303);
     }
 }
