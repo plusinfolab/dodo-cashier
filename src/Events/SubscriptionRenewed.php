@@ -2,7 +2,7 @@
 
 namespace Plusinfolab\DodoPayments\Events;
 
-use Plusinfolab\DodoPayments\Subscription;
+use App\Models\Subscription;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;

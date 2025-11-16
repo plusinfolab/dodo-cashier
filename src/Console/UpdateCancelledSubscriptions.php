@@ -4,7 +4,7 @@ namespace Plusinfolab\DodoPayments\Console;
 
 use Plusinfolab\DodoPayments\Enum\SubscriptionStatusEnum;
 use Illuminate\Console\Command;
-use Plusinfolab\DodoPayments\Subscription;
+use App\Models\Subscription;
 use Carbon\Carbon;
 
 class UpdateCancelledSubscriptions extends Command

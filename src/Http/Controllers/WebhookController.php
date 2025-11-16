@@ -5,7 +5,7 @@ namespace Plusinfolab\DodoPayments\Http\Controllers;
 use Plusinfolab\DodoPayments\Enum\SubscriptionStatusEnum;
 use Plusinfolab\DodoPayments\Events\SubscriptionPlanChanged;
 use Plusinfolab\DodoPayments\Events\SubscriptionRenewed;
-use Plusinfolab\DodoPayments\Subscription;
+use App\Models\Subscription;
 use Illuminate\Routing\Controller;
 use Plusinfolab\DodoPayments\DodoPayments;
 use Plusinfolab\DodoPayments\Events\PaymentSucceeded;
@@ -103,6 +103,7 @@ class WebhookController extends Controller
     protected function handleSubscriptionActive(array $payload): void
     {
         $data = $payload['data'];
+        Log::info("Handling Subscription Active ",[$this->findSubscription($data['subscription_id'])]);
         if (!$subscription = $this->findSubscription($data['subscription_id'])) {
             return;
         }
@@ -212,7 +213,7 @@ class WebhookController extends Controller
      * @param string $subscriptionId
      * @return Subscription
      */
-    protected function findSubscription(string $subscriptionId): Subscription
+    protected function findSubscription(string $subscriptionId)
     {
 
         return DB::transaction(function () use ($subscriptionId) {
