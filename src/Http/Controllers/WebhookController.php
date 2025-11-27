@@ -5,7 +5,8 @@ namespace Plusinfolab\DodoPayments\Http\Controllers;
 use Plusinfolab\DodoPayments\Enum\SubscriptionStatusEnum;
 use Plusinfolab\DodoPayments\Events\SubscriptionPlanChanged;
 use Plusinfolab\DodoPayments\Events\SubscriptionRenewed;
-use App\Models\Subscription;
+use Plusinfolab\DodoPayments\Events\SubscriptionCancelled;
+use Plusinfolab\DodoPayments\Subscription;
 use Illuminate\Routing\Controller;
 use Plusinfolab\DodoPayments\DodoPayments;
 use Plusinfolab\DodoPayments\Events\PaymentSucceeded;
@@ -205,6 +206,26 @@ class WebhookController extends Controller
         ]);
         $billable = $this->findCustomer($data['customer']['email']);
         SubscriptionPlanChanged::dispatch($billable, $subscription, $payload);
+    }
+
+    /**
+     * Handle Subscription Cancelled.
+     *
+     * @param array $payload
+     * @return void
+     */
+    protected function handleSubscriptionCancelled(array $payload): void
+    {
+        $data = $payload['data'];
+        if (!$subscription = $this->findSubscription($data['subscription_id'])) {
+            return;
+        }
+        $subscription->update([
+            'status' => $data['status'],
+            'ends_at' => Carbon::parse($data['ends_at'], 'UTC'),
+        ]);
+        $billable = $this->findCustomer($data['customer']['email']);
+        SubscriptionCancelled::dispatch($billable, $subscription, $payload);
     }
 
     /**

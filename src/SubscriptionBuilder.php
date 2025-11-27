@@ -177,24 +177,18 @@ class SubscriptionBuilder
      */
     public function create()
     {
-        if ($this->enableDebug) {
-            Log::info('Subscription Data: ' , $this->data);
-        }
-
         $response = DodoPayments::api('post', 'subscriptions', $this->data);
         if ($response->failed()) {
             throw new DodoPaymentsException('Failed to create subscription: ' . $response->body());
         }
-        $this->user->subscriptions()->create([
+
+        $subscription = $this->user->subscriptions()->create([
             'type' => $this->type,
             'subscription_id' => $response->json('subscription_id'),
             'product_id' => $this->data['product_id'],
             'status' => PaymentStatusEnum::PENDING
         ]);
-        if ($this->returnCheckoutUrl) {
-            Log::info('Subscription Data: ' , $this->data);
-            return ["checkout_url" => $response->json('payment_link')];
-        }
-        return Redirect::to($response->json('payment_link'), 303);
+
+        return new Checkout($subscription, $response->json('payment_link'));
     }
 }
