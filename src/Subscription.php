@@ -89,12 +89,25 @@ class Subscription extends Model
     public function cancel(bool $cancelNow = false): self
     {
         $response = DodoPayments::api('PATCH', "subscriptions/$this->subscription_id", [
-            'status' => SubscriptionStatusEnum::CANCELLED->value,
+            'cancel_at_period_end' => !$cancelNow,
         ]);
-        $endsAt = $cancelNow ? $response['created_at'] : $this->next_billing_at;
-        $this->forceFill([
-            'ends_at' => Carbon::parse($endsAt, 'UTC')
-        ])->save();
+
+        $this->sync($response->collect()->toArray());
+
+        return $this;
+    }
+
+    /**
+     * Resume the cancelled subscription.
+     */
+    public function resume(): self
+    {
+        $response = DodoPayments::api('PATCH', "subscriptions/{$this->subscription_id}", [
+            'status' => SubscriptionStatusEnum::ACTIVE->value,
+        ]);
+
+        $this->sync($response->collect()->toArray());
+
         return $this;
     }
 
@@ -157,7 +170,7 @@ class Subscription extends Model
      * @return void
      * @throws Exceptions\DodoPaymentsException
      */
-    public function swapPlan(string $productId, string $type): void
+    public function swap(string $productId, string $type): void
     {
         $response = DodoPayments::api(
             'POST',
